@@ -1,0 +1,295 @@
+#page-content {
+    background-color: #FFFFFF;
+    border-left: 1px solid #CCCCCC;
+    margin: 0 0 0 200px;
+    min-height: 1200px;
+    padding: 20px;
+}
+#nav-info {
+    background-color: #F6F6F6;
+    border-bottom: 1px solid #DDDDDD;
+    list-style: none outside none;
+    margin: -20px -20px 20px;
+    padding: 0;
+}
+
+.nav-dash {
+    background-color: #F9F9F9;
+    border-bottom: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+    list-style: none outside none;
+    margin: 0 -20px 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+.nav-dash > li {
+    display: inline-block;
+    margin: 0 3px;
+}
+.nav-dash > li > a {
+    background-color: #DDDDDD;
+    border: 1px solid #CCCCCC;
+    border-radius: 45px;
+    color: #777777;
+    display: block;
+    font-size: 32px;
+    height: 87px;
+    line-height: 32px;
+    margin: 0 0 5px;
+    padding: 27px 20px 13px;
+    position: relative;
+    text-align: center;
+    width: 87px;
+}
+.nav-dash > li.active > a, .nav-dash > li > a:hover {
+    background-color: #3991DB;
+    border: 1px solid #3991DB;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.nav-dash > li > a > .badge, .nav-dash > li > a > .label {
+    height: 20px;
+    line-height: 20px;
+    margin: 0 0 0 3px;
+    padding: 0 7px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.animacion-ul {
+    animation-duration: 1s;
+    animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-timing-function: ease-in-out;
+    visibility:visible !important;
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);}
+    100% {
+        opacity: 1;
+        transform: scale(1);}
+}
+@-ms-keyframes fadeIn {
+     0% {
+        opacity: 0;
+        transform: scale(0);}
+    100% {
+        opacity: 1;
+        transform: scale(1);}
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0);}
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+      }
+}
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);}
+    100% {
+        opacity: 1;
+        transform: scale(1);}
+}
+@keyframes fadeIn {
+     0% {
+        opacity: 0;
+        transform: scale(0);}
+    100% {
+        opacity: 1;
+        transform: scale(1);}
+}
+
+.animacion-menu {
+    animation-duration: 2s;
+    animation-name: menu;
+    animation-timing-function: ease-out;
+    transform-origin: 50% 0 0;
+}
+@-webkit-keyframes menu {
+   0% { transform: scaleY(0.1);}
+   40% { transform: scaleY(1.02);}
+   100%, 60% { transform: scaleY(0.98);}
+   80% {transform: scaleY(1.01);}
+   100% {transform: scaleY(1);}
+}
+@-moz-keyframes menu {
+   0% { transform: scaleY(0.1);}
+   40% { transform: scaleY(1.02);}
+   100%, 60% { transform: scaleY(0.98);}
+   80% {transform: scaleY(1.01);}
+   100% {transform: scaleY(1);}
+}
+@-ms-keyframes menu {
+   0% { transform: scaleY(0.1);}
+   40% { transform: scaleY(1.02);}
+   100%, 60% { transform: scaleY(0.98);}
+   80% {transform: scaleY(1.01);}
+   100% {transform: scaleY(1);}
+}
+
+@keyframes menu {
+   0% { transform: scaleY(0.1);}
+   40% { transform: scaleY(1.02);}
+   100%, 60% { transform: scaleY(0.98);}
+   80% {transform: scaleY(1.01);}
+   100% {transform: scaleY(1);}
+}
+
+
+
+.badge-success {
+    background-color: #5CB85C;
+}
+
+.dash-tile {
+    background-color: #E9E9E9;
+    margin: 0 0 20px;
+    min-height: 190px;
+    padding: 0 20px;
+    transition: all 0.2s ease-in-out 0s
+}
+.girar2{
+   -webkit-transition: all 2s ease-in-out;
+   -moz-transition: all 2s ease-in-out;
+   -o-transition: all 2s ease-in-out;
+   -ms-transition: all 2s ease-in-out;
+   transition: all 2s ease-in-out;
+}
+.girar{
+
+     -webkit-transform:rotate(720deg) scale(2,2);
+      -moz-transform:rotate(800deg) scale(2,2);
+      -o-transform:rotate(720deg) scale(2,2);
+      -ms-transform:rotate(720deg) scale(2,2);
+      transform:rotate(720deg) scale(2,2);
+}
+.dash-tile:hover {
+     transform: translate3d(6px, -6px, 0px);
+}
+.dash-tile-2x {
+    min-height: 400px;
+}
+.dash-tile-header {
+    background-color: #EEEEEE;
+    border-bottom: 2px solid #DDDDDD;
+    font-weight: 700;
+    line-height: 45px;
+    margin: 0 -20px;
+    min-height: 38px;
+    padding: 0 4px 0 7px;
+}
+.dash-tile-options {
+    float: right;
+    height: 38px;
+    line-height: 41px;
+}
+.dash-tile-options a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+.dash-tile-content {
+    margin: 0 -20px;
+    padding: 10px;
+}
+.dash-tile-2x .dash-tile-content {
+    padding: 15px;
+}
+.dash-tile-content-inner {
+    height: 130px;
+}
+.dash-tile-2x .dash-tile-content-inner {
+    height: 330px;
+}
+.dash-tile-content-inner-fluid {
+    min-height: 130px;
+}
+.dash-tile-2x .dash-tile-content-inner-fluid {
+    min-height: 330px;
+}
+.dash-tile-content-light {
+    background-color: #F9F9F9;
+    padding: 10px;
+}
+.dash-tile-content .alert {
+    margin: 5px 0;
+}
+.dash-tile-icon, .dash-tile-text {
+    color: #FFFFFF;
+    line-height: normal;
+}
+.dash-tile-icon {
+    float: left;
+    font-size: 48px;
+    padding: 40px 0 0;
+    text-align: left;
+   
+}
+.dash-tile i{
+   -webkit-transition: all 2s ease-in-out;
+   -moz-transition: all 2s ease-in-out;
+   -o-transition: all 2s ease-in-out;
+   -ms-transition: all 2s ease-in-out;
+   transition: all 2s ease-in-out;
+}
+.dash-tile:hover i{
+   -webkit-transform:rotate(720deg) scale(2,2);
+      -moz-transform:rotate(800deg) scale(2,2);
+      -o-transform:rotate(720deg) scale(2,2);
+      -ms-transform:rotate(720deg) scale(2,2);
+      transform:rotate(720deg) scale(2,2);
+}
+
+
+.dash-tile-text {
+    float: right;
+    font-size: 36px;
+    padding: 48px 0 0;
+    text-align: right;
+}
+.dash-tile-balloon .dash-tile-header, .dash-tile-dark .dash-tile-header, .dash-tile-doll .dash-tile-header, .dash-tile-flower .dash-tile-header, .dash-tile-fruit .dash-tile-header, .dash-tile-leaf .dash-tile-header, .dash-tile-ocean .dash-tile-header, .dash-tile-oil .dash-tile-header {
+    background-color: #EEEEEE;
+    border-bottom: 2px solid #F9F9F9;
+    opacity: 0.75;
+}
+.dash-tile-balloon.no-opacity .dash-tile-header, .dash-tile-dark.no-opacity .dash-tile-header, .dash-tile-doll.no-opacity .dash-tile-header, .dash-tile-flower.no-opacity .dash-tile-header, .dash-tile-fruit.no-opacity .dash-tile-header, .dash-tile-leaf.no-opacity .dash-tile-header, .dash-tile-ocean.no-opacity .dash-tile-header, .dash-tile-oil.no-opacity .dash-tile-header {
+    opacity: 1;
+}
+.dash-tile-balloon:hover, .dash-tile-dark:hover, .dash-tile-doll:hover, .dash-tile-flower:hover, .dash-tile-fruit:hover, .dash-tile-leaf:hover, .dash-tile-ocean:hover, .dash-tile-oil:hover {
+    opacity: 0.9;
+}
+.dash-tile-balloon.no-opacity:hover, .dash-tile-dark.no-opacity:hover, .dash-tile-doll.no-opacity:hover, .dash-tile-flower.no-opacity:hover, .dash-tile-fruit.no-opacity:hover, .dash-tile-leaf.no-opacity:hover, .dash-tile-ocean.no-opacity:hover, .dash-tile-oil.no-opacity:hover {
+    opacity: 1;
+}
+.dash-tile-leaf {
+    background-color: #C2DB39;
+}
+.dash-tile-dark {
+    background-color: #555555;
+}
+.dash-tile-ocean {
+    background-color: #3991DB;
+}
+.dash-tile-flower {
+    background-color: #9139DB;
+}
+.dash-tile-fruit {
+    background-color: #DB9839;
+}
+.dash-tile-oil {
+    background-color: #D9DB39;
+}
+.dash-tile-balloon {
+    background-color: #DB6739;
+}
+.dash-tile-doll {
+    background-color: #DB39BB;
+}
