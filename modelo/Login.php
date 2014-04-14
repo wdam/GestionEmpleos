@@ -13,7 +13,71 @@
  */
 class Login extends Modelo {
     
+    Private $identificacion;
+    private $Clave;
+    private $Nivel;
+    private $Email;
+    
     public function __construct() {
         parent::__construct();
     }
+    public function getIdentificacion() {
+        return $this->identificacion;
+    }
+
+    public function getClave() {
+        return $this->Clave;
+    }
+
+    public function getNivel() {
+        return $this->Nivel;
+    }
+
+    public function getEmail() {
+        return $this->Email;
+    }
+
+    public function setIdentificacion($identificacion) {
+        $this->identificacion = $identificacion;
+    }
+
+    public function setClave($Clave) {
+        $this->Clave = $Clave;
+    }
+
+    public function setNivel($Nivel) {
+        $this->Nivel = $Nivel;
+    }
+
+    public function setEmail($Email) {
+        $this->Email = $Email;
+    }
+
+      
+     private function mapearLogin(Login $Logi, array $props) {
+        if (array_key_exists('Identificacion', $props)) {
+            $Logi->setIdentificacion($props['Identificacion']);
+        }
+        if (array_key_exists('Clave', $props)) {
+            $Logi->setClave($props['Clave']);
+        }
+        if (array_key_exists('Nivel', $props)) {
+            $Logi->setNivel($props['Nivel']);
+        }
+        if (array_key_exists('Email', $props)) {
+            $Logi->setEmail($props['Email']);
+        }
+    }
+
+    private function getParametros(Login $login) {
+
+        $parametros = array(
+            ':Identificacion' => $login->getIdentificacion(),
+            ':Clave' => $login->getClave(),
+            ':Nivel' => $login->getNivel(),
+            ':Email' => $login->getEmail()
+        );
+        return $parametros;
+    }
+
 }

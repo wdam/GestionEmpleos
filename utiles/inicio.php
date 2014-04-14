@@ -6,16 +6,17 @@
  * adecuado dependiendo de la llamada que se realice.
  *
  */
-$controlador = "Usuario";
-$accion = "index";
+$controlador = "Login";
+$accion = "inicio";
 $consulta = null;
-$peticion = $_GET['leer'];
 
-if (!(preg_match("/\.css$/", $peticion) || preg_match("/\.js$/", $peticion) || preg_match("/\.jpg$/", $peticion))) {
-
-    if (isset($peticion)) {
+$regURI = isset($_GET['load']) ? $_GET['load']: NULL;
+       
+if(! (preg_match("/\.css$/", $regURI) || preg_match("/\.js$/", $regURI) || preg_match("/\.gif$/", $regURI)
+|| preg_match("/\.jpg$/", $regURI))) {
+    if (isset($regURI)) {
         $parametros = array();
-        $parametros = explode("/", $_GET['leer']); //explode: divide en varias cadenas la cadena de consulta. 
+        $parametros = explode("/", $_GET['load']); //explode: divide en varias cadenas la cadena de consulta. 
         $controlador = ucwords($parametros[0]); //ucwords: Convierte a mayúsculas el primer caracter de cada palabra en una cadena
 
         if (isset($parametros[1]) && !empty($parametros[1])) {
@@ -23,8 +24,8 @@ if (!(preg_match("/\.css$/", $peticion) || preg_match("/\.js$/", $peticion) || p
         }
 
         if (isset($parametros[2]) && !empty($parametros[2])) {
-            $consulta = $parametros[2]; //variable de variable
-        }
+           $consulta = $parametros[2]; //variable de variable
+          }
     }
 
     $modelo = $controlador;
