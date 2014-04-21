@@ -2,6 +2,7 @@
 
 define('DS', DIRECTORY_SEPARATOR);
 define('HOME', dirname(__FILE__));
+define('APPNAME', 'GestionEmpleos');
 
 
 ini_set('display_erros', 1);

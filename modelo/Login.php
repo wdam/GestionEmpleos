@@ -18,9 +18,12 @@ class Login extends Modelo {
     private $Nivel;
     private $Email;
     
+    // CONTRUCTOR 
     public function __construct() {
         parent::__construct();
     }
+    
+    // GETTER Y SETTER
     public function getIdentificacion() {
         return $this->identificacion;
     }
@@ -54,6 +57,7 @@ class Login extends Modelo {
     }
 
       
+    // MAPEO Y OBTENCION DE PARAMETROS 
      private function mapearLogin(Login $Logi, array $props) {
         if (array_key_exists('Identificacion', $props)) {
             $Logi->setIdentificacion($props['Identificacion']);
@@ -78,6 +82,20 @@ class Login extends Modelo {
             ':Email' => $login->getEmail()
         );
         return $parametros;
+    }
+    
+    // FUNCIONES CRUD
+    public function buscarLogin($cod, $pas) {
+        $sql =  "SELECT  Nivel, Identificacion, Clave FROM persona WHERE Identificacion='$cod' and Clave=SHA('$pas')"; 
+        $param = array($cod, $pas);
+        $this->__setSql($sql);
+        $resultado = $this->consultar($sql, $param);
+        $logueado= NULL ; 
+     foreach ($resultado as $fila){
+         $logueado = new Login();
+         $this->mapearLogin($logueado, $fila);
+     }
+     return $logueado;
     }
 
 }

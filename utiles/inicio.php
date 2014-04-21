@@ -7,7 +7,7 @@
  *
  */
 $controlador = "Login";
-$accion = "inicio";
+$accion = "index";
 $consulta = null;
 
 $regURI = isset($_GET['load']) ? $_GET['load']: NULL;
