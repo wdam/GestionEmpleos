@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $titulo; ?></title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
-    <link href="css/animate.delay.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="/<?php echo APPNAME;?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/<?php echo APPNAME;?>/css/login.css" rel="stylesheet">
+    <link href="/<?php echo APPNAME;?>/css/animate.delay.css" rel="stylesheet">
+    <link href="/<?php echo APPNAME;?>/css/animate.min.css" rel="stylesheet">
     <script type="text/javascript">
         var init = function() {
             var efectoFlip = document.getElementById('efectoFlip');
@@ -107,7 +107,7 @@
                                     <div class="panel-title">Crear Cuenta</div>
                                     <div class="titulo"><a href="#" onclick="$('#registroNuevo').hide(); $('#login').show()">Iniciar Sesion</a></div>
                                 </div>
-                            <div class="panel-boy">
+                            <div class="panel-body">
                                 <form name="frmRegistroUsuario" class="form-horizontal" role="form">
                                     <div id="registroAlert" style="display:none" class="alert alert-danger">
                                         <p>Error Al registrarse.........</p>

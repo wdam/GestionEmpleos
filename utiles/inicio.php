@@ -6,7 +6,7 @@
  * adecuado dependiendo de la llamada que se realice.
  *
  */
-$controlador = "Login";
+$controlador = "Empresa";
 $accion = "index";
 $consulta = null;
 

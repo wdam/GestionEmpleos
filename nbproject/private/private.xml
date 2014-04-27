@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Proyectos/GestionEmpleos/controlador/LoginControl.php</file>
-            <file>file:/E:/Proyectos/GestionEmpleos/modelo/Login.php</file>
-            <file>file:/E:/Proyectos/GestionEmpleos/vista/login/menuCliente.tpl</file>
-            <file>file:/E:/Proyectos/GestionEmpleos/vista/login/index.tpl</file>
-            <file>file:/E:/Proyectos/GestionEmpleos/vista/login/controlAcceso.tpl</file>
+            <file>file:/E:/GestionEmpleos/vista/empresa/index.tpl</file>
+            <file>file:/E:/GestionEmpleos/modelo/Empresa.php</file>
+            <file>file:/E:/GestionEmpleos/index.php</file>
+            <file>file:/E:/GestionEmpleos/vista/login/index.tpl</file>
+            <file>file:/E:/GestionEmpleos/controlador/EmpresaControl.php</file>
+            <file>file:/E:/GestionEmpleos/vista/login/menuAdministrador.tpl</file>
+            <file>file:/E:/GestionEmpleos/config/configuracion.ini</file>
+            <file>file:/E:/GestionEmpleos/modelo/Login.php</file>
+            <file>file:/E:/GestionEmpleos/utiles/inicio.php</file>
         </group>
     </open-files>
 </project-private>

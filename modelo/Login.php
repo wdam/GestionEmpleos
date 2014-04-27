@@ -86,7 +86,7 @@ class Login extends Modelo {
     
     // FUNCIONES CRUD
     public function buscarLogin($cod, $pas) {
-        $sql =  "SELECT  Nivel, Identificacion, Clave FROM persona WHERE Identificacion='$cod' and Clave=SHA('$pas')"; 
+        $sql =  "SELECT  Nivel, Identificacion, Clave FROM persona WHERE Identificacion='$cod' and Clave='$pas'"; 
         $param = array($cod, $pas);
         $this->__setSql($sql);
         $resultado = $this->consultar($sql, $param);
