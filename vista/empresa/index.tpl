@@ -36,15 +36,76 @@
                             <div id="regAlert" style="display:none" class="alert alert-danger">
                                 <p>Error Al Guardar Empresa.........</p>
                             </div>
-                            <input id="txtCodigo" Name="txtCodigo"type="text" class="form-control" placeholder="Codigo Empresa" title="Codigo Empresa">
+                            <div class="form-group">
+                            	<div class="col-xs-6 col-sm-4 col-md-4">					
+                                 	<input id="txtCodigo" Name="txtCodigo"type="text" class="form-control" placeholder="Codigo Empresa" title="Codigo Empresa" tabindex="1">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+		                         	<input id="txtNombre" Name="txtNombre"type="text" class="form-control" placeholder="Nombre de la Empresa" title="Nombre de la Empresa" tabindex="2">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">					
+		                         	<input id="txtTelefono" Name="txtTelefono"type="text" class="form-control" placeholder="Telefono" title="Telefono" tabindex="3">								
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
+		                         	<input id="txtCelular" Name="txtCelular"type="text" class="form-control" placeholder="Celular" title="Celular" tabindex="4">							
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px">					
+		                         	<input id="txtCelular" Name="txtCelular"type="text" class="form-control" placeholder="Celular" title="Celular" tabindex="4">							
+								</div>
+							</div>
+
+							<div class="form-group" style="margin-top: 15px">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+		                         	<input id="txtEmail" Name="txtEmail"type="text" class="form-control" placeholder="Correo Electronico" title="Correo Electronico" tabindex="5">
+								</div>
+							</div>
+
+                            <div class="row">
+  								<div class="col-xs-12 col-sm-6 col-md-6">
+  									<select class="form-control" title="Departamento" tabindex="6">
+  										<option>Seleccione Departamento</option>
+									</select>
+  								</div>
+  								<div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
+    								<select class="form-control" title="Ciudad O Municipio" tabindex="7">
+  										<option>Seleccione Ciudad</option>
+									</select>
+  								</div>
+  								<div class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px" >
+    								<select class="form-control" title="Ciudad O Municipio" tabindex="7">
+  										<option>Seleccione Ciudad</option>
+									</select>
+  								</div>
+							</div>
+								
+							<div class="form-group" style="margin-top: 15px">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+		                         	<input id="txtDireccion" Name="txtDireccion"type="text" class="form-control" placeholder="Dirección" title="Dirección" tabindex="8">
+								</div>
+							</div>
+							
+                            <div class="row">
+								<div class="col-xs-8 col-sm-4 col-md-4">
+									<input type="submit" name="btnGuardar" id="btnGuardar" value="Guardar" class="btn btn-primary btn-block" tabindex="9"></div>
+								<div class="col-xs-8 col-sm-4 col-md-4 hidden-xs">
+									<input type="reset" name="btnCancelar" id="btnCancelar" value="Cancelar" class="btn btn-primary btn-block">  
+								</div>
+
+								<div class="col-xs-8 col-sm-4 col-md-4 visible-xs" style="margin-top: 15px">
+									<input type="reset" name="btnCancelar" id="btnCancelar" value="Cancelar" class="btn btn-primary btn-block">  
+								</div>
+							</div>
 						</form>
 
 					</div>
 				
 				</div>
 			</div>
-
-			<div class="col-md-12">
+			<div class="col-md-12 col-xs-12 col-sm-12">
 				<hr class="colorgraph">
 			</div>	
 		</div>
