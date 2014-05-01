@@ -17,8 +17,14 @@ class Empresa extends Modelo{
     private  $Nombre;
     private  $Telefono;
     private  $Email;
-    
-    
+    private  $Departamento;
+    private  $Direccion;
+    private  $Celular;
+    private  $Ciudad;
+
+
+
+
     // Constructor
     public function __construct() {
         parent::__construct();
@@ -41,6 +47,22 @@ class Empresa extends Modelo{
        return $this->Email;
    }
 
+   public function getDepartamento() {
+       return $this->Departamento;
+   }
+
+   public function getDireccion() {
+       return $this->Direccion;
+   }
+
+   public function getCelular() {
+       return $this->Celular;
+   }
+
+   public function getCiudad() {
+       return $this->Ciudad;
+   }
+
    public function setCodigo($Codigo) {
        $this->Codigo = $Codigo;
    }
@@ -57,7 +79,22 @@ class Empresa extends Modelo{
        $this->Email = $Email;
    }
 
+   public function setDepartamento($Departamento) {
+       $this->Departamento = $Departamento;
+   }
 
+   public function setDireccion($Direccion) {
+       $this->Direccion = $Direccion;
+   }
+
+   public function setCelular($Celular) {
+       $this->Celular = $Celular;
+   }
+
+   public function setCiudad($Ciudad) {
+       $this->Ciudad = $Ciudad;
+   }
+   
 
 // MAPEO Y OBTENCION DE PARAMETROS 
      private function mapearLogin(Empresa $empr, array $props) {
@@ -73,6 +110,18 @@ class Empresa extends Modelo{
         if (array_key_exists('Email', $props)) {
             $empr->setEmail($props['Email']);
         }
+        if (array_key_exists('Departamento', $props)) {
+            $empr->setDepartamento($props['Departamento']);
+        }
+        if (array_key_exists('Direccion', $props)) {
+            $empr->setDireccion($props['Direccion']);
+        }
+        if (array_key_exists('Celular', $props)) {
+            $empr->setCelular($props['Celular']);
+        }
+        if (array_key_exists('Ciudad', $props)) {
+            $empr->setCiudad($props['Ciudad']);
+        }
     }
 
     private function getParametros(Empresa $empr) {
@@ -81,9 +130,48 @@ class Empresa extends Modelo{
             ':Codigo' => $empr->getCodigo(),
             ':Nombre' => $empr->getNombre(),
             ':Telefono' => $empr->getTelefono(),
-            ':Email' => $empr->getEmail()
+            ':Email' => $empr->getEmail(),
+            ':Departamento' => $empr->getDepartamento(),
+            ':Direccion' => $empr->getDireccion(),
+            ':Celular' => $empr->getCelular(),
+            ':Ciudad' => $empr->getCiudad()                
+                
         );
         return $parametros;
     }
+    // FUNCIONES
+    public function registrarEmpresa(Empresa $empr){
+        $sql = "INSERT INTO empresa (Codigo, Nombre, Telefono, Email, Departamento, Direccion, Celular, Ciudad) ";
+        $sql.= "VALUES (:Codigo, :Nombre, :Telefono, :Email, :Departamento, :Direccion, :Celular, :Ciudad)";
+        $this->__setSql($sql);
+        $this->ejecutar($this->getParametros($empr));
+        
+    }
+    public function contar() {
+       $sql = "SELECT MAX(codigo) as total FROM empresa";
+       $this->__setSql($sql);
+       $resultado= $this->consultar($sql);
+       $regi="001";
+      foreach ($resultado as $fila) {
+       $nreg= $fila['total']+1;
+      }
+      if ($nreg < '10') {
+          $regi = date('Y') .'-'. '0000'. $nreg;
+       }
+       elseif (($nreg >= '10' ) && ($nreg <='99')){
+           $regi = date('Y') .'-'. '000'. $nreg; 
+       }
+        elseif (($nreg > '99' ) && ($nreg <='999')){
+           $regi = date('Y') .'-'. '00'. $nreg; 
+       }
+        elseif (($nreg > '999' ) && ($nreg <='9999')){
+           $regi = date('Y') .'-'. '0'. $nreg; 
+       }
+      else {
+            $regi = date('Y') ."-". $nreg; 
+       }
+      return $regi;
+  }
+    
     
 }

@@ -19,6 +19,39 @@
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 	</style>
+	<script type="text/javascript">
+            //Funcion de Ajax
+            function getAjax() {
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    xmlhttp = new ActiveObject("Microsoft.XMLHTTP");
+                }
+                return xmlhttp;
+            }
+
+           function llenarCiudades(depto, div) {
+                var ajax = getAjax();
+                ajax.onreadystatechange = function() {
+                    if (ajax.readyState == 4) {
+                        if (ajax.status == 200) {
+                            var datos = ajax.responseText;
+                             document.getElementById(div).innerHTML=datos;
+                             
+		       }
+                    }
+                }
+                ajax.open("GET", "/GestionEmpleos/empresa/listarmunicipios/" + depto, true);
+                ajax.send(null);
+            }
+            window.onload = function() { 
+                document.getElementById('cboDepartamento').onchange = function() {
+                    var depto = document.getElementById('cboDepartamento').options[document.getElementById('cboDepartamento').selectedIndex].value;
+                   llenarCiudades(depto, 'combociudad');
+               }
+            }
+        </script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -32,65 +65,60 @@
 						<div class="panel-title">Registrar Empresa</div>
 					</div>
 					<div class="panel-body">
-						<form name="frmEmpresa" class="form-horizontal" role="form">
+                        <form action="/GestionEmpleos/empresa/registrarEmpresa" method="POST" name="frmEmpresa" class="form-horizontal" role="form">
                             <div id="regAlert" style="display:none" class="alert alert-danger">
                                 <p>Error Al Guardar Empresa.........</p>
                             </div>
                             <div class="form-group">
                             	<div class="col-xs-6 col-sm-4 col-md-4">					
-                                 	<input id="txtCodigo" Name="txtCodigo"type="text" class="form-control" placeholder="Codigo Empresa" title="Codigo Empresa" tabindex="1">
+                                 	<input Name="txtCodigo"type="text" required class="form-control" id="txtCodigo" placeholder="Codigo Empresa" tabindex="1" title="Codigo Empresa" value="<?php echo $Codigo; ?>" readonly >
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-12 col-sm-12 col-md-12">
-		                         	<input id="txtNombre" Name="txtNombre"type="text" class="form-control" placeholder="Nombre de la Empresa" title="Nombre de la Empresa" tabindex="2">
+		                         	<input Name="txtNombre"type="text" autofocus required class="form-control" id="txtNombre" placeholder="Nombre de la Empresa" tabindex="2" title="Nombre de la Empresa">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-6">					
-		                         	<input id="txtTelefono" Name="txtTelefono"type="text" class="form-control" placeholder="Telefono" title="Telefono" tabindex="3">								
+		                         	<input Name="txtTelefono"type="text" required class="form-control" id="txtTelefono" placeholder="Telefono" tabindex="3" title="Telefono">								
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
-		                         	<input id="txtCelular" Name="txtCelular"type="text" class="form-control" placeholder="Celular" title="Celular" tabindex="4">							
+		                         	<input Name="txtCelular"type="text" required class="form-control" id="txtCelular" placeholder="Celular" tabindex="4" title="Celular">							
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px">					
-		                         	<input id="txtCelular" Name="txtCelular"type="text" class="form-control" placeholder="Celular" title="Celular" tabindex="4">							
+		                         	<input Name="txtCelular"type="text" required class="form-control" id="txtCelular" placeholder="Celular" tabindex="4" title="Celular">							
 								</div>
 							</div>
 
 							<div class="form-group" style="margin-top: 15px">
 								<div class="col-xs-12 col-sm-12 col-md-12">
-		                         	<input id="txtEmail" Name="txtEmail"type="text" class="form-control" placeholder="Correo Electronico" title="Correo Electronico" tabindex="5">
+		                         	<input Name="txtEmail"type="text" required class="form-control" id="txtEmail" placeholder="Correo Electronico" tabindex="5" title="Correo Electronico">
 								</div>
 							</div>
 
                             <div class="row">
   								<div class="col-xs-12 col-sm-6 col-md-6">
-  									<select class="form-control" title="Departamento" tabindex="6">
-  										<option>Seleccione Departamento</option>
+  									<select name="cboDepartamento" required class="form-control" id="cboDepartamento" tabindex="6" title="Departamento">
+  										<option value="">Seleccione Departamento </option>
+                 						<?php foreach ($deptos as $depto){ ?>
+                                        <option value="<?php echo $depto->getCodDepart(); ?>"><?php echo $depto->getNombre();?></option>  
+                  						<?php } ?>
 									</select>
   								</div>
-  								<div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
-    								<select class="form-control" title="Ciudad O Municipio" tabindex="7">
-  										<option>Seleccione Ciudad</option>
-									</select>
-  								</div>
-  								<div class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px" >
-    								<select class="form-control" title="Ciudad O Municipio" tabindex="7">
-  										<option>Seleccione Ciudad</option>
-									</select>
-  								</div>
+  								<div id="combociudad" name="combociudad"></div>
 							</div>
 								
 							<div class="form-group" style="margin-top: 15px">
 								<div class="col-xs-12 col-sm-12 col-md-12">
-		                         	<input id="txtDireccion" Name="txtDireccion"type="text" class="form-control" placeholder="Dirección" title="Dirección" tabindex="8">
+		                         	<input Name="txtDireccion"type="text" required class="form-control" id="txtDireccion" placeholder="Dirección" tabindex="8" title="Dirección">
 								</div>
 							</div>
 							
                             <div class="row">
 								<div class="col-xs-8 col-sm-4 col-md-4">
-									<input type="submit" name="btnGuardar" id="btnGuardar" value="Guardar" class="btn btn-primary btn-block" tabindex="9"></div>
+									<input name="btnGuardar" type="submit" id="btnGuardar" formmethod="POST" title="Registrar Empresa" value="Guardar" class="btn btn-primary btn-block">
+								</div>
 								<div class="col-xs-8 col-sm-4 col-md-4 hidden-xs">
 									<input type="reset" name="btnCancelar" id="btnCancelar" value="Cancelar" class="btn btn-primary btn-block">  
 								</div>
