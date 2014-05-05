@@ -97,7 +97,7 @@ class Empresa extends Modelo{
    
 
 // MAPEO Y OBTENCION DE PARAMETROS 
-     private function mapearLogin(Empresa $empr, array $props) {
+     private function mapearEmpresa(Empresa $empr, array $props) {
         if (array_key_exists('Codigo', $props)) {
             $empr->setCodigo($props['Codigo']);
         }
@@ -148,7 +148,7 @@ class Empresa extends Modelo{
         
     }
     public function contar() {
-       $sql = "SELECT MAX(codigo) as total FROM empresa";
+       $sql = "SELECT count(*) as total FROM empresa";
        $this->__setSql($sql);
        $resultado= $this->consultar($sql);
        $regi="001";
@@ -156,22 +156,33 @@ class Empresa extends Modelo{
        $nreg= $fila['total']+1;
       }
       if ($nreg < '10') {
-          $regi = date('Y') .'-'. '0000'. $nreg;
+          $regi = date('Y') . '000'. $nreg;
        }
        elseif (($nreg >= '10' ) && ($nreg <='99')){
-           $regi = date('Y') .'-'. '000'. $nreg; 
+           $regi = date('Y') . '00'. $nreg; 
        }
         elseif (($nreg > '99' ) && ($nreg <='999')){
-           $regi = date('Y') .'-'. '00'. $nreg; 
+           $regi = date('Y'). '0'. $nreg; 
        }
-        elseif (($nreg > '999' ) && ($nreg <='9999')){
-           $regi = date('Y') .'-'. '0'. $nreg; 
-       }
+       
       else {
-            $regi = date('Y') ."-". $nreg; 
+            $regi = date('Y'). $nreg; 
        }
       return $regi;
   }
+  
+    public function leerEmpresas() {
+        $sql = "SELECT Codigo, Nombre FROM empresa";
+        $this->__setSql($sql);
+        $resultado = $this->consultar($sql);
+        $empresa= array();
+        foreach ($resultado as $fila) {
+            $emp = new Empresa();
+            $this->mapearEmpresa($emp, $fila);
+            $empresa[$emp->getCodigo()] = $emp;
+        }
+        return $empresa;
+    }
     
     
 }

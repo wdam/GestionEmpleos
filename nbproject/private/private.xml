@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>controlador/OfertasEmpleoControl.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>42</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/GestionEmpleos/vista/empresa/index.tpl</file>
+            <file>file:/E:/GestionEmpleos/modelo/OfertasEmpleo.php</file>
+            <file>file:/E:/GestionEmpleos/vista/ofertasEmpleo/registrarOferta.tpl</file>
             <file>file:/E:/GestionEmpleos/modelo/Empresa.php</file>
             <file>file:/E:/GestionEmpleos/index.php</file>
-            <file>file:/E:/GestionEmpleos/vista/login/index.tpl</file>
+            <file>file:/E:/GestionEmpleos/modelo/Modelo.php</file>
             <file>file:/E:/GestionEmpleos/controlador/EmpresaControl.php</file>
-            <file>file:/E:/GestionEmpleos/vista/login/menuAdministrador.tpl</file>
-            <file>file:/E:/GestionEmpleos/config/configuracion.ini</file>
-            <file>file:/E:/GestionEmpleos/modelo/Login.php</file>
+            <file>file:/E:/GestionEmpleos/controlador/OfertasEmpleoControl.php</file>
             <file>file:/E:/GestionEmpleos/utiles/inicio.php</file>
         </group>
     </open-files>

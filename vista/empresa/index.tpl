@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,35 +65,34 @@
 						<div class="panel-title">Registrar Empresa</div>
 					</div>
 					<div class="panel-body">
-                        <form action="/GestionEmpleos/empresa/registrarEmpresa" method="POST" name="frmEmpresa" class="form-horizontal" role="form">
+                        <form  name="crearEmpresa" method="post"  class="form-horizontal"action="/GestionEmpleos/empresa/registrarempresa" id="crearEmpresa" role="form">
                             <div id="regAlert" style="display:none" class="alert alert-danger">
                                 <p>Error Al Guardar Empresa.........</p>
                             </div>
                             <div class="form-group">
                             	<div class="col-xs-6 col-sm-4 col-md-4">					
-                                 	<input Name="txtCodigo"type="text" required class="form-control" id="txtCodigo" placeholder="Codigo Empresa" tabindex="1" title="Codigo Empresa" value="<?php echo $Codigo; ?>" readonly >
+                                 	<input Name="txtCodigo" type="text" required class="form-control" id="txtCodigo" placeholder="Codigo Empresa" tabindex="1" title="Codigo Empresa" value="<?php echo $Codigo; ?>" readonly >
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-12 col-sm-12 col-md-12">
-		                         	<input Name="txtNombre"type="text" autofocus required class="form-control" id="txtNombre" placeholder="Nombre de la Empresa" tabindex="2" title="Nombre de la Empresa">
+		                         	<input Name="txtNombre" type="text" autofocus required class="form-control" id="txtNombre" placeholder="Nombre de la Empresa" tabindex="2" title="Nombre de la Empresa">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-6">					
-		                         	<input Name="txtTelefono"type="text" required class="form-control" id="txtTelefono" placeholder="Telefono" tabindex="3" title="Telefono">								
+		                         	<input Name="txtTelefono" type="text" required class="form-control" id="txtTelefono" placeholder="Telefono" tabindex="3" title="Telefono">								
 								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6 hidden-xs">
-		                         	<input Name="txtCelular"type="text" required class="form-control" id="txtCelular" placeholder="Celular" tabindex="4" title="Celular">							
+								<div id="espacio3"class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px"></div>
+								<div class="col-xs-12 col-sm-6 col-md-6 ">
+		                         	<input Name="txtCelular" type="text"  class="form-control" id="txtCelular" placeholder="Celular" tabindex="4" title="Celular">							
 								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px">					
-		                         	<input Name="txtCelular"type="text" required class="form-control" id="txtCelular" placeholder="Celular" tabindex="4" title="Celular">							
-								</div>
+								
 							</div>
 
 							<div class="form-group" style="margin-top: 15px">
 								<div class="col-xs-12 col-sm-12 col-md-12">
-		                         	<input Name="txtEmail"type="text" required class="form-control" id="txtEmail" placeholder="Correo Electronico" tabindex="5" title="Correo Electronico">
+		                         	<input Name="txtEmail" type="email" required class="form-control" id="txtEmail" placeholder="Correo Electronico" tabindex="5" title="Correo Electronico">
 								</div>
 							</div>
 
@@ -106,27 +105,26 @@
                   						<?php } ?>
 									</select>
   								</div>
+  								<div id="espacio1"class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px"></div>
   								<div id="combociudad" name="combociudad"></div>
 							</div>
 								
 							<div class="form-group" style="margin-top: 15px">
 								<div class="col-xs-12 col-sm-12 col-md-12">
-		                         	<input Name="txtDireccion"type="text" required class="form-control" id="txtDireccion" placeholder="Dirección" tabindex="8" title="Dirección">
+		                         	<input Name="txtDireccion" type="text" required class="form-control" id="txtDireccion" placeholder="Dirección" tabindex="8" title="Dirección">
 								</div>
 							</div>
 							
                             <div class="row">
 								<div class="col-xs-8 col-sm-4 col-md-4">
-									<input name="btnGuardar" type="submit" id="btnGuardar" formmethod="POST" title="Registrar Empresa" value="Guardar" class="btn btn-primary btn-block">
+									<input type="submit" name="btnGuardar"  class="btn btn-primary btn-block" id="btnGuardar"  title="Registrar Empresa" value="Guardar">
 								</div>
-								<div class="col-xs-8 col-sm-4 col-md-4 hidden-xs">
+								<div id="espacio2"class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px"></div>
+								<div class="col-xs-8 col-sm-4 col-md-4 ">
 									<input type="reset" name="btnCancelar" id="btnCancelar" value="Cancelar" class="btn btn-primary btn-block">  
 								</div>
-
-								<div class="col-xs-8 col-sm-4 col-md-4 visible-xs" style="margin-top: 15px">
-									<input type="reset" name="btnCancelar" id="btnCancelar" value="Cancelar" class="btn btn-primary btn-block">  
-								</div>
-							</div>
+							
+							</div>						
 						</form>
 
 					</div>

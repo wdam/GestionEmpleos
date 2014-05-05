@@ -35,9 +35,9 @@ class EmpresaControl  extends Controlador{
        }
     }
     
-    public function registrarEmpresa(){   
+    public function registrarempresa(){   
         
-        if (filter_input(INPUT_POST, 'btnGuardar')){
+         if (filter_input(INPUT_POST, 'btnGuardar')){
             $codigo= filter_input(INPUT_POST,'txtCodigo') ? filter_input(INPUT_POST,'txtCodigo') : NULL;
             $nombre= filter_input(INPUT_POST,'txtNombre') ? filter_input(INPUT_POST,'txtNombre') : NULL;
             $telefono= filter_input(INPUT_POST,'txtTelefono') ? filter_input(INPUT_POST,'txtTelefono') : NULL;

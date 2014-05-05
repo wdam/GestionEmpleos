@@ -35,11 +35,13 @@ function cargadorClases(){
     require_once './modelo/Modelo.php';
     require_once './modelo/Login.php';
     require_once './modelo/Empresa.php';
+    require_once './modelo/OfertasEmpleo.php';
     require_once './modelo/Municipios.php';
     require_once './modelo/Departamento.php';
     require_once './controlador/Controlador.php';
     require_once './controlador/LoginControl.php';
     require_once './controlador/EmpresaControl.php';
+    require_once './controlador/OfertasEmpleoControl.php';
     require_once './vista/Vista.php';
     require_once './utiles/class.phpmailer.php';
     require_once './utiles/class.pop3.php';
