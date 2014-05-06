@@ -16,6 +16,7 @@ class EmpresaControl  extends Controlador{
     
     function __construct($modelo, $accion) {
         parent::__construct($modelo, $accion);
+         $this->setModelo($modelo);
     }
     
     public function index() {    

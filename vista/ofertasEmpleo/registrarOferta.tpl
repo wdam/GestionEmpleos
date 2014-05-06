@@ -45,13 +45,25 @@
 								</div>
 							</div>
                             
-                            <div class="form-group">
-                            	<div class="col-xs-6 col-sm-4 col-md-4">					
-                                    <input Name="txtCodigo" type="text" required class="form-control" id="txtCodigo" placeholder="Codigo"  title="Codigo Oferta de Empleo" value="<?php echo $codigo; ?>"  readonly>
+                            <div class="row">
+                            	<div class="col-xs-12 col-sm-6 col-md-6">
+                            	    <label for="txtCodigo" class="col-xs-2 col-sm-2 col-md-2 control-label hidden-xs">Codigo</label>	
+                            	    <div class="col-xs-8 col-sm-4 col-md-4">				
+                                    	<input Name="txtCodigo" type="text" required class="form-control" id="txtCodigo" placeholder="Codigo"  title="Codigo Oferta de Empleo" value="<?php echo $codigo; ?>"  readonly>
+                                	</div>
 								</div>
-							</div>
+								<div id="espacio3"class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px"></div>
 
-							<div class="form-group">
+                            	<div class="col-xs-12 col-sm-6 col-md-6 ">
+    								<label for="txtFecha" class="col-xs-2 col-sm-2 col-md-2 control-label hidden-xs">Fecha</label>
+    								<div class="col-xs-8 col-sm-4 col-md-4">
+      									<input Name="txtFecha" type="text" required class="form-control" id="txtFecha" placeholder="Fecha"  title="Fecha" value="<?php echo date('Y-m-d'); ?>"  readonly>
+    								</div>
+    							</div>	                       	
+                            </div>
+                            
+
+							<div class="form-group" style="margin-top: 15px">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 		                         	<input Name="txtNombre" type="text"  required class="form-control" id="txtNombre" placeholder="Nombre del Puesto de Trabajo" tabindex="2" title="Nombre">
 								</div>
@@ -63,7 +75,7 @@
 								</div>
 							</div>
 							
-							<div class="form-group" >
+							<div class="row">
 								<div class="col-xs-12 col-sm-4 col-md-4" >
 								  <select name="cboJornada" required class="form-control" id="cboJornada" tabindex="4" title="Jornada Laboral">
 								    <option value="">Seleccione Jornada Laboral</option>
@@ -71,9 +83,13 @@
 								    <option value="Parcial">Parcial</option>
 								    </select>
 								</div>
+								<div id="espacio2"class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px"></div>
+								<div class="col-xs-12 col-sm-4 col-md-4" >
+									<input Name="txtVacantes" type="number"  required class="form-control" id="txtVacantes" placeholder="# Vacantes" max="20" min="1" tabindex="5" title="Numero de Vacantes">
+								</div>						
 							</div>
 
-							<div class="form-group">
+							<div class="form-group" style="margin-top: 15px">
 								<div class="col-xs-12 col-sm-7 col-md-7">
 								 <b>Rango Salarial: $500000&nbsp;&nbsp;   
 								 <input name="salMin" type="hidden" id="salMin" value="500000">
@@ -91,7 +107,7 @@
 							
                             <div class="row">
 								<div class="col-xs-8 col-sm-4 col-md-4">
-									<input name="btnGuardar" type="submit"  class="btn btn-primary btn-block" id="btnGuardar"  title="Registrar Empresa" value="Guardar">
+									<input name="btnGuardar" type="submit"  class="btn btn-primary btn-block" id="btnGuardar"  title="Registrar Empresa" value="Guardar" tabindex="7">
 								</div>
 								<div id="espacio2"class="col-xs-12 col-sm-6 col-md-6 visible-xs" style="margin-top: 15px"></div>
 								<div class="col-xs-8 col-sm-4 col-md-4 ">

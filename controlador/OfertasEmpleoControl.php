@@ -16,6 +16,7 @@ class OfertasEmpleoControl  extends Controlador{
     
     function __construct($modelo, $accion) {
         parent::__construct($modelo, $accion);
+        $this->setModelo($modelo);
     }
     
     public function registrarOferta(){
@@ -38,6 +39,9 @@ class OfertasEmpleoControl  extends Controlador{
             $salarioMin= filter_input(INPUT_POST,'salMin') ? filter_input(INPUT_POST,'salMin') : NULL;
             $salarioMax= filter_input(INPUT_POST,'salMax') ? filter_input(INPUT_POST,'salMax') : NULL;
             $requisitos= filter_input(INPUT_POST,'txtRequisitos') ? filter_input(INPUT_POST,'txtRequisitos') : NULL;
+            $fecha= filter_input(INPUT_POST,'txtFecha') ? filter_input(INPUT_POST,'txtFecha') : NULL;
+            $vacantes= filter_input(INPUT_POST,'txtVacantes') ? filter_input(INPUT_POST,'txtVacantes') : NULL;
+            
             $estado= "registrada";
         
             try {
@@ -51,6 +55,8 @@ class OfertasEmpleoControl  extends Controlador{
                 $oferta->setRequisitos($requisitos);
                 $oferta->setEstado($estado);
                 $oferta->setCodEmpresa($empresa);
+                $oferta->setVacantes($vacantes);
+                $oferta->setFecha($oferta->crearFecha($fecha));
                 $oferta->registrarEmpresa($oferta);
                 $this->vista->set('titulo', 'Datos almacenados');
                 $this->vista->set('mensaje', 'Se ha guardado la informacion de manera satisfactoria');
@@ -63,8 +69,27 @@ class OfertasEmpleoControl  extends Controlador{
       
     }
     public function publicarOferta(){
-         $oferta = new OfertasEmpleo();
+        try {
+         $oferta = new OfertasEmpleo(); 
+        
          $this->vista->set('ofertas', $oferta->buscarOfertaEstado("registrada"));
          return $this->vista->imprimir();
+        
+         } catch (Exception $exc) {
+            echo 'Error de aplicacion: ' . $exc->getMessage();
+        }
+    }
+    
+    public function detalle($idOferta){
+        $oferta = $this->modelo->buscarOfertaCodigo($idOferta);
+        if ($oferta != null){
+           $this->vista->set('titulo', "Oferta: " . $oferta->getNombre() );
+           $this->vista->set('oferta', $oferta);  
+        } else {
+            $this->vista->set('titulo', 'Oferta No Existe');
+            $this->vista->set('oferta', $oferta);
+        }
+       
+        return $this->vista->imprimir();
     }
 }

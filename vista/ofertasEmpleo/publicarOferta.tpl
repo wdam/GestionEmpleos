@@ -11,11 +11,11 @@
     <script src="js/jquery.dataTables.min.js" ></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/dataTables.bootstrap.js"></script>
-	<title>Tablas</title>
+	<title>Publicar Ofertas</title>
     
     <script type="text/javascript" charset="utf-8"> 
         $(document).ready(function() {
-            $('#alumnos').dataTable( {
+            $('#publicacion').dataTable( {
             "sLengthMenu": false,
             "bFilter": true,
             "bSort": true,
@@ -27,7 +27,9 @@
 </script>
  <script type="text/javascript"> 
 		$(document).ready(function() {
-        $(".dataTables_filter input").addClass("form-control").attr("placeholder","Buscar"); });   
+        $(".dataTables_filter input").addClass("hidden-xs").attr("placeholder","Buscar");
+        $(".dataTables_filter label").addClass("hidden-xs");
+         });   
 </script>	   
 
 
@@ -36,117 +38,44 @@
 	<div class="container-fluid">
 		<br>
 		<div class="row-fluid">
-            <div class="col-md-12">
+            <div class="col-md-10 col-sm-12 col-xs-12">
                  <br>
-                 <div class="panel  panel-primary">
-  
-                        <div class="panel-heading">Listado de Usuarios</div>
-                            <div class="panel-body">
-                                  <table class="table table-striped table-hover table-bordered dataTable" id="alumnos">
-                    <thead>
-                 <tr>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Telefono</th>
-                        <th>Email</th>
-                    </tr>  
-                    </thead> 
-                    <tbody>
-                <tr>
-                    <td>Columna 1</td>
-                    <td>malo 2</td>
-                    <td>Columna 3</td>
-                    <td>Columna 4</td>
-                </tr>
-                <tr>
-                    <td>columna 5</td>
-                    <td>hola 6</td>
-                    <td>columna 7</td>
-                    <td>columna 8</td>
-                </tr>
-                <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>html5 </td>
-                    <td>sss </td>
-                    <td>css </td>
-                    <td>php </td>
-                </tr>
-                <tr>
-                    <td>daniel </td>
-                    <td>arias </td>
-                    <td>wendell </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>aaaa </td>
-                    <td>arias </td>
-                    <td>cccc </td>
-                    <td>martinez </td>
-                </tr>
-                 <tr>
-                    <td>java </td>
-                    <td>C# </td>
-                    <td>bbbb </td>
-                    <td>martinez </td>
-                </tr>
-                </tbody>
-                </table>
-                         </div>
-              
-            </div>
-            </div>
-        </div>
-        
-	</div>
-</div>
-	
-     
+                <div class="panel  panel-primary">
+                    <div class="panel-heading">Ofertas de trabajo Por Publicar</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-bordered" id="publicacion">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Cargo</th>
+                                        <th>Jornada</th>
+                                        <th>Empresa</th>
+                                        <th>Ubicación</th>
+                                        <th>Publicar</th>
+                                    </tr>  
+                                </thead> 
+                                <tbody>
+                                    <?php foreach ($ofertas as $ofer) { ?>
+                                    <tr>
+                                        <td><?php echo $ofer->getFecha()->Format('Y-m-d');?></td>
+                                        <td><a href="/GestionEmpleos/ofertasEmpleo/detalle/<?php echo $ofer->getIdOferta();?>"> <?php echo $ofer->getNombre();?></a></td>
+                                        <td><?php echo $ofer->getJornada();?></td>
+                                        <td><?php echo $ofer->getCodEmpresa();?></td>
+                                        <td><?php echo $ofer->getRequisitos();?></td>
+                                        <td><div class="text-center"><a class="btn btn-xs btn-primary" title="Publicar" data-toggle="tooltip" data-original-title="Publicar">
+                                            <i class="fa fa-pencil"></i>
+                                        </a></div></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                                </table>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+    	</div>
+    </div>
 </body>
 </html>

@@ -23,6 +23,8 @@ class OfertasEmpleo extends Modelo {
     private $Requisitos;
     private $Estado;
     private $codEmpresa;
+    private $Vacantes;
+    private $Fecha;
 
     public function __construct() {
         parent::__construct();
@@ -99,7 +101,23 @@ class OfertasEmpleo extends Modelo {
     public function setCodEmpresa($codEmpresa) {
         $this->codEmpresa = $codEmpresa;
     }
+    public function getVacantes() {
+        return $this->Vacantes;
+    }
 
+    public function setVacantes($Vacantes) {
+        $this->Vacantes = $Vacantes;
+    }
+
+    public function getFecha() {
+        return $this->Fecha;
+    }
+
+    public function setFecha(DateTime $Fecha) {
+        $this->Fecha = $Fecha;
+    }
+
+    
         
 
     // MAPEO Y OBTENCION DE PARAMETROS
@@ -131,6 +149,12 @@ class OfertasEmpleo extends Modelo {
         if (array_key_exists('codEmpresa', $props)) {
             $ofer->setCodEmpresa($props['codEmpresa']);
         }
+        if (array_key_exists('Vacantes', $props)) {
+            $ofer->setVacantes($props['Vacantes']);
+        }
+        if (array_key_exists('Fecha', $props)) {
+            $ofer->setFecha(self::crearFecha($props['Fecha']));
+        }
     }
 
     private function getParametros(OfertasEmpleo $ofer) {
@@ -144,15 +168,18 @@ class OfertasEmpleo extends Modelo {
             ':SalarioMax' => $ofer->getSalarioMax(),
             ':Requisitos' => $ofer->getRequisitos(),
             ':Estado' => $ofer->getEstado(),
-            ':codEmpresa' => $ofer->getCodEmpresa()
+            ':codEmpresa' => $ofer->getCodEmpresa(),
+            ':Vacantes' => $ofer->getVacantes(),
+            ':Fecha' => $this->formatearFecha($ofer->getFecha())
+            
         );
         return $parametros;
     }
 
     // FUNCIONES 
     public function registrarEmpresa(OfertasEmpleo $ofer) {
-        $sql = "INSERT INTO ofertaempleo (idOferta, Nombre, Descripcion, Jornada, SalarioMin, SalarioMax, Requisitos, Estado, codEmpresa) ";
-        $sql.= "VALUES (:idOferta, :Nombre, :Descripcion, :Jornada, :SalarioMin, :SalarioMax, :Requisitos, :Estado, :codEmpresa)";
+        $sql = "INSERT INTO ofertaempleo (idOferta, Nombre, Descripcion, Jornada, SalarioMin, SalarioMax, Requisitos, Estado, codEmpresa, Vacantes, Fecha) ";
+        $sql.= "VALUES (:idOferta, :Nombre, :Descripcion, :Jornada, :SalarioMin, :SalarioMax, :Requisitos, :Estado, :codEmpresa, :Vacantes, :Fecha)";
         $this->__setSql($sql);
         $this->ejecutar($this->getParametros($ofer));
     }
@@ -178,19 +205,35 @@ class OfertasEmpleo extends Modelo {
     }
     
       public function buscarOfertaEstado($estado) {
-        //TODO: Hacer las funciones de encriptacion en php 
-        //$clave = encriptar_sha($clave)
-      $sql = "SELECT f.Nombre, f.Jornada, em.Nombre as nEmpresa, mu.Nombre as nCiudad FROM ofertaempleo f
+      $sql = "SELECT f.Fecha, f.idOferta, f.Nombre, f.Jornada, em.Nombre as codEmpresa, mu.Nombre as Requisitos FROM ofertaempleo f
                 INNER JOIN empresa em ON f.CodEmpresa = em.Codigo
                 inner join municipios mu on em.Ciudad = mu.idMuni
                 where f.Estado='$estado'";  
         $param = array($estado);
         $this->__setSql($sql);
         $res = $this->consultar($sql, $param);
-        $oferta = NULL;
+        $oferta = array();
+        foreach ($res as $fila) {
+            $ofer = new OfertasEmpleo();
+            $this->mapearOferta($ofer, $fila);
+              $oferta[$ofer->getIdOferta()] = $ofer;
+        }
+        return $oferta;
+    }
+     
+    public function buscarOfertaCodigo($codigo) {
+    // $sql = "SELECT f.Fecha, f.idOferta, f.Nombre, f.Jornada, em.Nombre as codEmpresa, mu.Nombre as Requisitos FROM ofertaempleo f
+    //           INNER JOIN empresa em ON f.CodEmpresa = em.Codigo
+    //         inner join municipios mu on em.Ciudad = mu.idMuni
+    //       where f.idOferta='$codigo'";  
+        $sql="SELECT f.*, em.Nombre as codEmpresa FROM ofertaempleo f INNER JOIN empresa em ON f.CodEmpresa = em.Codigo WHERE idOferta ='$codigo'";
+        $param = array($codigo);
+        $this->__setSql($sql);
+        $res = $this->consultar($sql, $param);
+        $oferta = null;
         foreach ($res as $fila) {
             $oferta = new OfertasEmpleo();
-            $this->mapearOferta($oferta, $fila);
+            $this->mapearOferta($oferta, $fila);           
         }
         return $oferta;
     }
