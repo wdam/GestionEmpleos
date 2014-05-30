@@ -1,16 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/slider-bootstrap.css" rel="stylesheet">
-    <script src="js/modernizr.js"></script> 
-    <script src="js/jquery.js"></script> 
- <!--	<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script> -->
-    
-    <link href="css/slider-bootstrap.css" rel="stylesheet"> 
+    <link href="/<?php echo APPNAME;?>/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/<?php echo APPNAME;?>/js/modernizr.js"></script> 
+    <script src="/<?php echo APPNAME;?>/js/jquery.js"></script>
+    <link href="/<?php echo APPNAME;?>/css/slider-bootstrap.css" rel="stylesheet"> 
     <title>Registrar Oferta</title>
 	
 </head>
@@ -123,8 +120,8 @@
 		</div>
 	</div><!-- Cierre Container Fluid-->
 	
-  	<script src="js/bootstrap-slider.js"></script> 
-    <script src="js/bootstrap.min.js"></script>
+  	<script src="/<?php echo APPNAME;?>/js/bootstrap-slider.js"></script> 
+    <script src="/<?php echo APPNAME;?>/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function() {
 	$( "#Slider1" ).slider({

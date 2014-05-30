@@ -6,8 +6,8 @@
  * adecuado dependiendo de la llamada que se realice.
  *
  */
-$controlador = "OfertasEmpleo";
-$accion = "publicarOferta";
+$controlador = "Persona";
+$accion = "index";
 $consulta = null;
 
 $regURI = isset($_GET['load']) ? $_GET['load']: NULL;

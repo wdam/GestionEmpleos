@@ -20,8 +20,6 @@ class OfertasEmpleoControl  extends Controlador{
     }
     
     public function registrarOferta(){
-        //$this->vista->set('titulo', 'Inicio de Sesion - INFOTECH');
-        //$this->vista->set('mensaje', '');
         $empresa = new Empresa();
         $this->vista->set('empresas', $empresa->leerEmpresas());
         $oferta = new OfertasEmpleo();
@@ -78,6 +76,17 @@ class OfertasEmpleoControl  extends Controlador{
          } catch (Exception $exc) {
             echo 'Error de aplicacion: ' . $exc->getMessage();
         }
+    }
+    public function guardarPublicacion($idOferta){
+        $oferta = $this->modelo->actualizarEstadoOfertaCodigo($idOferta);   
+         if ($oferta=== 1){
+           $this->vista->set('titulo', "Publicacion de Oferta" );
+           $this->vista->set('mensaje', "Exito");   
+         } else {
+           $this->vista->set('titulo', "Publicacion de Oferta" );
+           $this->vista->set('mensaje', ""); 
+         }
+        return $this->vista->imprimir();
     }
     
     public function detalle($idOferta){

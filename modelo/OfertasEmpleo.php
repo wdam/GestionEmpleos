@@ -221,11 +221,7 @@ class OfertasEmpleo extends Modelo {
         return $oferta;
     }
      
-    public function buscarOfertaCodigo($codigo) {
-    // $sql = "SELECT f.Fecha, f.idOferta, f.Nombre, f.Jornada, em.Nombre as codEmpresa, mu.Nombre as Requisitos FROM ofertaempleo f
-    //           INNER JOIN empresa em ON f.CodEmpresa = em.Codigo
-    //         inner join municipios mu on em.Ciudad = mu.idMuni
-    //       where f.idOferta='$codigo'";  
+    public function buscarOfertaCodigo($codigo) { 
         $sql="SELECT f.*, em.Nombre as codEmpresa FROM ofertaempleo f INNER JOIN empresa em ON f.CodEmpresa = em.Codigo WHERE idOferta ='$codigo'";
         $param = array($codigo);
         $this->__setSql($sql);
@@ -236,6 +232,16 @@ class OfertasEmpleo extends Modelo {
             $this->mapearOferta($oferta, $fila);           
         }
         return $oferta;
+    }
+    
+    public function actualizarEstadoOfertaCodigo($codigo) { 
+        $sql="UPDATE ofertaempleo SET Estado='publicada' WHERE idOferta=:idOferta ";
+        $this->__setSql($sql);
+        $this->prepararSentencia($sql);
+        $this->sentencia->bindParam(":idOferta", $codigo, PDO::PARAM_STR);
+        $this->ejecutarSentencia(); 
+        $Nreg= $this->sentencia->rowCount();
+        return $Nreg;
     }
 
 }

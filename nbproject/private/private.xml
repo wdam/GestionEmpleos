@@ -5,21 +5,20 @@
             <url>controlador/OfertasEmpleoControl.php</url>
             <bookmark id="1">
                 <name/>
-                <line>42</line>
+                <line>44</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/GestionEmpleos/modelo/OfertasEmpleo.php</file>
+            <file>file:/E:/GestionEmpleos/vista/persona/registrarCandidato.tpl</file>
             <file>file:/E:/GestionEmpleos/vista/ofertasEmpleo/registrarOferta.tpl</file>
             <file>file:/E:/GestionEmpleos/modelo/Empresa.php</file>
-            <file>file:/E:/GestionEmpleos/index.php</file>
-            <file>file:/E:/GestionEmpleos/modelo/Modelo.php</file>
             <file>file:/E:/GestionEmpleos/controlador/EmpresaControl.php</file>
-            <file>file:/E:/GestionEmpleos/controlador/OfertasEmpleoControl.php</file>
-            <file>file:/E:/GestionEmpleos/utiles/inicio.php</file>
+            <file>file:/E:/GestionEmpleos/controlador/PersonaControl.php</file>
+            <file>file:/E:/GestionEmpleos/modelo/Persona.php</file>
+            <file>file:/E:/GestionEmpleos/vista/persona/index.tpl</file>
         </group>
     </open-files>
 </project-private>
